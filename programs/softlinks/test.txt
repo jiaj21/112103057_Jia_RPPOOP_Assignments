@@ -1,0 +1,6 @@
+this is line 1
+yhis is line 2
+this is line 2
+this line was added to og file
+this line was added to softlink 1
+this line was added by softlink 2 : even if inode numbers are different of all 3, the content is always same and change in any one is reflected in all files

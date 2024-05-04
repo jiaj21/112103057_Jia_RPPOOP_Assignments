@@ -1,0 +1,7 @@
+this is line 1 
+this is line 2
+this is line 3
+this line was added by hardlink 1
+this line was added by og file
+this line was added by hardlink 2: change made by nay file is reflected here.inode of all three files are same. 
+after delting og file, hardlinks are still accessible

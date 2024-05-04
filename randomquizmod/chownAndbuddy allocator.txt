@@ -1,0 +1,46 @@
+Added pseudo code of system call in sysfile.c 
+int
+sys_chown(void)
+{
+  //takes two parameters path and owner
+  char *path; 
+  int owner;
+  // checking parameter was given or not and retuen to chown() code
+  return chown(path, owner);
+}
+
+Add a prototype for the new system call to the file syscall.h
+int chown(char *path, int owner);
+
+add implementation in fs.c
+
+
+Changing system call number in syscall.h by adding the following line:
+#define SYS_chown 22
+
+Update system call jump table in syscall.c :
+[SYS_chown]  sys_chown,
+\
+Add a test case for the new system call to the file usertests.c. The test case should verify that chown() changes the owner of a file successfully.
+
+Modify the Makefile to include the new source files created for the new system call: 
+_\chown
+
+
+Need to declare a new data structre budy block which contains its size, address and pointer to next block 
+struct buddy_blk {
+    int size;
+    char *addr;
+    struct buddy_blk *next;
+};
+Allocator: 
+int buddy_alloc(int size);
+init for it:
+void buddy_init(char *mem_start, int mem_size);
+
+ Modify kalloc() function to use the buddy allocator to allocate memory
+
+Modify the kfree()
+
+And all other like block spliting, block merging functions.
+
